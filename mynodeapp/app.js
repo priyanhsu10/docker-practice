@@ -8,10 +8,8 @@ app.get("/", (req, res) => {
 });
 
 app.get("/data", (req, res) => {
-  data = {
-    name: "Priyanshu parate",
-    age: 33,
-  };
-  res.send(data);
+  fetch("https://jsonplaceholder.typicode.com/posts/")
+    .then((res) => res.json())
+    .then((r) => res.send(r));
 });
 app.listen(port, () => console.log("api server started "));

@@ -1,0 +1,18 @@
+version: '3.8'
+services:
+  api:
+    build: ./mynodeapp
+    container_name: api_c
+    ports:
+       - '4000:3000'
+    volumes:
+       - ./api:/mynodeapp
+       - ./app/node_modules
+  
+  myblog:
+    build: ./blogapp
+    container_name: client_c
+    ports:
+      - '3000:3000'
+    
+
